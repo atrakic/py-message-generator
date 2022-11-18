@@ -1,0 +1,15 @@
+{# templates/readme.txt #}
+
+Hello {{ name }}!
+
+{% if score > 80 %}
+Nice job {{ name }}!
+{% else %}
+I'm sorry to inform you that you did not do so well on today's {{ name }}.
+{% endif %}
+
+You reached {{ score }} out of {{ max_score }} points.
+
+---
+Best regards
+{{ author }}
