@@ -21,9 +21,9 @@ def main():
             test_name="DevOps challenge",
             author="Admin"
             )
-    with open(filename, mode="w", encoding="utf-8") as message:
-        message.write(content)
-        print(f"... wrote {filename}")
+        with open(filename, mode="w", encoding="utf-8") as message:
+            message.write(content)
+            print(f"... wrote {filename}")
 
 if __name__ == "__main__":
     main()
