@@ -20,8 +20,10 @@ jobs:
           pip install jinja2
           # if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Analysing the code with pylint
+        if: false
         run: pylint $(git ls-files '*.py')
       - name: Analysing the code with mypy
+        if: false
         run: mypy $(git ls-files '*.py')
       
       - name: execute py script
