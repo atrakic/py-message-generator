@@ -1,4 +1,4 @@
-# py-rapport-generator
-[![readme](https://github.com/abadta_gheab/py-rapport-generator/actions/workflows/readme.yml/badge.svg)](https://github.com/abadta_gheab/py-rapport-generator/actions/workflows/readme.yml)
+# py-report-generator
+[![readme](https://github.com/abadta_gheab/py-report-generator/actions/workflows/py-report.yml/badge.svg)](https://github.com/abadta_gheab/py-report-generator/actions/workflows/py-report.yml)
 
-> Simple raport generator with Python.
+> Simple report generator with Python.
