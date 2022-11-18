@@ -1,8 +1,8 @@
 import os
 from jinja2 import Environment, FileSystemLoader
 
-max_score = os.getenv('MAX_SCORE', 100)
 test_name = os.getenv('TEST_NAME', 'DevOps challenge')
+author = os.getenv('RUNNER', 'Admin')
 
 # TODO: fetch API data from somewhere
 players = [
@@ -15,6 +15,7 @@ players = [
 def main():
     """The main function.
     """
+    max_score = 100
     environment = Environment(loader=FileSystemLoader("templates/"))
     template = environment.get_template("message.txt")
     for player in players:
@@ -23,7 +24,7 @@ def main():
             player, 
             max_score=max_score,
             test_name=test_name,
-            author="Admin"
+            author=author
             )
         with open(filename, mode="w", encoding="utf-8") as message:
             message.write(content)
