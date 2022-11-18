@@ -1,5 +1,6 @@
 name: readme
 on:
+  push:
   workflow_dispatch:
 jobs:
   build:
