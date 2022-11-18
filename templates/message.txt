@@ -1,13 +1,12 @@
 {# templates/message.txt #}
-
 Hello {{ name }}!
 
 {% if score > 80 %}
-Nice job {{ name }}!
+Good job, you did very well on today's {{ test_name }}!
 {% else %}
-I'm sorry to inform you that you did not do so well on today's {{ name }}.
+I'm sorry to inform you that you did not do so well on today's {{ test_name }}.
 {% endif %}
-You reached {{ score }} out of {{ max_score }} points.
+Your score is: {{ score }} out of #{{ max_score }} points.
 
 ---
 Best regards
