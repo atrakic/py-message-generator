@@ -13,6 +13,8 @@ environment = Environment(loader=FileSystemLoader("templates/"))
 template = environment.get_template("message.txt")
 
 def main():
+    """The main function.
+    """
     for player in players:
         filename = f"message_{player['name'].lower()}.txt"
         content = template.render(
