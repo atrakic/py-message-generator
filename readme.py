@@ -23,7 +23,7 @@ def main():
             test_name=test_name,
             author="Admin"
             )
-    print(f"{content}")
+        print(f"{content}")
 
 if __name__ == "__main__":
     main()
