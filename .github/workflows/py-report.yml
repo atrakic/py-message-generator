@@ -38,7 +38,7 @@ jobs:
       - name: execute py script
         run: python main.py
         env:
-          RUNNER: ${{ github.repository_owner }}
+          RUNNER: ${{ github.actor }}
 
       - name: Upload manifest result
         uses: actions/upload-artifact@v3
