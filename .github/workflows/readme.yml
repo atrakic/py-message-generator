@@ -2,6 +2,8 @@ name: readme
 on:
   push:
   workflow_dispatch:
+#  schedule:
+#    - cron: "30 11 * * *"    #run at 11:30 UTC everyday
 jobs:
   build:
     runs-on: ubuntu-latest
