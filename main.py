@@ -1,10 +1,16 @@
+"""\
+Minimal rapport handler.
+
+This script is executed with GH Actions.
+"""
+
 import os
 from jinja2 import Environment, FileSystemLoader
 
 test_name = os.getenv('TEST_NAME', 'DevOps challenge')
 author = os.getenv('RUNNER', 'Admin')
 
-# TODO: fetch API data from somewhere
+""" TODO: fetch API data from somewhere"""
 players = [
     {"name": "Foo",  "score": 100},
     {"name": "Bar", "score": 87},
@@ -21,7 +27,7 @@ def main():
     for player in players:
         filename = f"dist/{player['name'].lower()}.txt"
         content = template.render(
-            player, 
+            player,
             max_score=max_score,
             test_name=test_name,
             author=author
