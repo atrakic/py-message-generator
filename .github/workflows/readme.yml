@@ -18,13 +18,13 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install flake8 pytest mypy pylint
-          pip install jinja2
-          # if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Analysing the code with pylint
         if: false
         run: pylint $(git ls-files '*.py')
       - name: Analysing the code with mypy
         if: false
-        run: mypy $(git ls-files '*.py')      
+        run: mypy $(git ls-files '*.py')
+
       - name: execute py script
-        run: python readme.py
+        run: python main.py
