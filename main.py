@@ -1,5 +1,8 @@
 from jinja2 import Environment, FileSystemLoader
 
+max_score = os.getenv('MAX_SCORE', 100)
+test_name = os.getenv('TEST_NAME', 'DevOps challenge')
+
 # TODO: fetch API data from somewhere
 players = [
     {"name": "Foo",  "score": 100},
@@ -17,8 +20,8 @@ def main():
         filename = f"dist/{player['name'].lower()}.txt"
         content = template.render(
             player, 
-            max_score=100,
-            test_name="DevOps challenge",
+            max_score=max_score,
+            test_name=test_name,
             author="Admin"
             )
         with open(filename, mode="w", encoding="utf-8") as message:
