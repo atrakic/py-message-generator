@@ -1,9 +1,21 @@
-name: py-report
+name: py-message
 on:
   push:
-  workflow_dispatch:
-#  schedule:
+    paths:
+      - src/**
+      - tests/**
+  
+  workflow_call:
+    inputs:
+      username:
+        description: 'A username passed from the caller workflow'
+        required: false
+        default: ${{ github.actor }}
+        type: string
+
+# schedule:
 #    - cron: "30 11 * * *"    #run at 11:30 UTC everyday
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,25 +33,30 @@ jobs:
           python -m pip install --upgrade pip
           pip install flake8 pytest mypy pylint
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      
       - name: Lint with flake8
-        if: false
         run: |
           # stop the build if there are Python syntax errors or undefined names
           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
           # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
           #flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+      
       - name: Analysing the code with pylint
         run: pylint $(git ls-files '*.py')
+      
       - name: Analysing the code with mypy
         run: mypy $(git ls-files '*.py')
 
-      - name: execute py script
-        run: python main.py
+      - name: Pytest
+        run: python -m pytest tests
+
+      - name: Execute py script
+        run: python src/main.py
         env:
-          RUNNER: ${{ github.actor }}
+          RUNNER: ${{ inputs.username }} # ${{ github.actor }}
 
       - name: Upload manifest result
         uses: actions/upload-artifact@v3
         with:
-          name: py-rapport
+          name: py-message
           path: ./dist/*.txt
